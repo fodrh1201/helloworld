@@ -44,7 +44,7 @@ int main()
         perror("listen");
         goto error;
     }
-    acceptedSock = accept(serverSock, (struct sockaddr *)&Addr, &AddrSize);
+    acceptedSock = accept(serverSock, (struct sockaddr *)&Addr, &AddrSize); // 여러 놈들이 접속할 수 있으므로 따로 빼놓음. 멀티쓰레드든, 다른방법이든.
     if (acceptedSock == -1) {
         perror("accept");
         ret = -1;
